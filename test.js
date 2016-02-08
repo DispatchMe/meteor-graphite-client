@@ -2,6 +2,17 @@
 /* global sinon:false - from practicalmeteor:sinon */
 /* global stubs:false - from practicalmeteor:sinon */
 
+Tinytest.add('test', function() {
+  var client = new Graphite.client({
+    host: 'carbon.hostedgraphite.com',
+    port: 2003,
+    prefix: 'b023d802-9632-4bb2-addb-e6fd1aa90fdf.test',
+    debug: true
+  });
+
+  client.track('testMetric', 1);
+});
+/*
 Tinytest.add('Graphite - should generate message accurately', function(test) {
   var client = new Graphite.client({
     host: 'carbon.hostedgraphite.com',
@@ -83,4 +94,4 @@ Tinytest.add('Graphite - monitorFunction should log stats accurately', function(
   sinon.assert.calledTwice(trackStub);
   sinon.assert.calledWith(trackStub, 'testMetric.success', 1);
   sinon.assert.calledWith(trackStub, 'testMetric.error', 1);
-});
+});*/
